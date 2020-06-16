@@ -1,0 +1,131 @@
+$red: #f7aaa7;
+$blue: #b2e0fa;
+$yellow: #f4f5bc;
+$orange: #ffd29e;
+$green: #b2fad6;
+$purple: #cbb2fa;
+$pink: #fab2f4;
+$rose: #fab2c2;
+
+
+
+
+
+
+
+
+
+
+
+@mixin shadow($shadow-color) {
+  box-shadow: 0 0 25px adjust_color($shadow-color, $alpha: .10) inset;
+}
+
+@mixin segmentProps($color, $foreground:false) {
+  background: darken($color, 20%);
+  @if ($foreground) {
+    color: $foreground;
+  } @else {
+    color: $color;
+  }
+}
+
+@mixin segmentPropsActive($color, $foreground:rgb(15,15,15)) {
+  background: $color;
+  color: $foreground;
+  @include shadow(lighten($color, 90%));
+}
+.random-wheel__segment:hover{
+  opacity: 0.9;
+  color: rgb(12,12,12);
+  border-radius: 0px;
+  font-size: 32px;
+
+
+}
+.random-wheel {
+  font-weight: bolder;
+  position: relative;
+  display: flex;
+  font-size: 28px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: auto;
+  width: 50%;
+  border-radius: 2px;
+
+
+
+  &__segment-container {
+    display: flex;
+    flex-direction: column;
+
+  }
+  
+
+  &__segment {
+    padding: .5em;
+    border: 2px solid black;
+    text-align: center;
+    transition: background 50ms, box-shadow 50ms, color 50ms;
+    width:600px;
+    border-radius: 4px;
+    margin-top: 0.01px;
+
+
+
+    &.blue {
+      @include segmentProps($blue);
+    }
+    &--active.blue {
+      @include segmentPropsActive($blue);
+    }
+
+    &.orange {
+      @include segmentProps($orange);
+    }
+    &--active.orange {
+      @include segmentPropsActive($orange);
+    }
+
+
+    &.yellow {
+      @include segmentProps($yellow);
+    }
+    &--active.yellow {
+      @include segmentPropsActive($yellow);
+    }
+
+    &.red {
+      @include segmentProps($red);
+    }
+    &--active.red {
+      @include segmentPropsActive($red);
+    }
+
+    &.green {
+      @include segmentProps($green);
+    }
+    &--active.green {
+      @include segmentPropsActive($green);
+    }
+    &.purple {
+      @include segmentProps($purple);
+    }
+    &--active.purple {
+      @include segmentPropsActive($purple);
+    }
+    &.pink {
+      @include segmentProps($pink);
+    }
+    &--active.pink {
+      @include segmentPropsActive($pink);
+    }
+    &.rose {
+      @include segmentProps($rose);
+    }
+    &--active.rose {
+      @include segmentPropsActive($rose);
+    }
+  }
+
+}
