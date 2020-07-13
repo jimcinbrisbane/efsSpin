@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import ReactWheel from '../src/components/wheel/index';
 import Nav from './nav'
 const App = () => {
-	const names = ['pizza','napkin','bucket','pen','usb','laundry mat']
+	const names = ['vouchers','Oooops...unlucky','free tickets to EFS event','EFS annual membership','EFS exclusive shirt','keep cup'].sort(() => Math.random() - 0.5)
 	const colors = ['red'].concat(['green','blue','yellow','orange','purple','rose'].sort(() => Math.random() - 0.5));
 	console.log(colors,'c')
 	const segments = names.map(x => ({name:x, color:colors[names.indexOf(x)]}))
